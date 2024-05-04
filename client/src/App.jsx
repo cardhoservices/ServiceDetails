@@ -10,7 +10,7 @@ function SubscriptionTracker() {
 
     // console.log(import.meta.env.VITE_SERVER_URL)
     useEffect(() => {
-        axios.get(`${import.meta.env.VITE_SERVER_URL}/get`)
+        axios.get(`${import.meta.env.VITE_SERVER_URL}/getdata`)
             .then((response) => {
                 // console.log(response.data)
                 setData(response.data);
@@ -19,38 +19,6 @@ function SubscriptionTracker() {
                 console.error(error);
             });
     }, [])
-    function calculateInteriorCleaningDates(startDate) {
-        const start = new Date(startDate);
-        const interiorCleaningDates = [];
-        let nextInteriorCleaning = new Date(start);
-    
-        // Move to the next occurrence of the same day of the week as the start date
-        while (nextInteriorCleaning.getDay() !== start.getDay()) {
-            nextInteriorCleaning.setDate(nextInteriorCleaning.getDate() + 1);
-        }
-    
-        let daysAdded = 0;
-    
-        while (daysAdded <= 30) {
-            if (daysAdded !== 0) {
-                interiorCleaningDates.push(nextInteriorCleaning.toDateString());
-            }
-            daysAdded += 7;
-            nextInteriorCleaning.setDate(nextInteriorCleaning.getDate() + 7); // Add 7 days for the next interior cleaning
-        }
-    
-        return interiorCleaningDates;
-    }
-
-
-    // Function to calculate the next interior cleaning date
-    function calculateNextInteriorCleaning(StartDate) {
-        if (!StartDate) return '';
-        const start = new Date(StartDate);
-        let nextInteriorCleaning = new Date(start);
-        nextInteriorCleaning.setDate(start.getDate() + 7);
-        return nextInteriorCleaning.toDateString();
-    }
 
     // Function to calculate the next pressure wash date
     function calculateNextPressureWash(StartDate) {
@@ -73,24 +41,6 @@ function SubscriptionTracker() {
         return validTill.toDateString();
     }
 
-    // Function to display subscription details
-    function displaySubscriptionDetails(startDate) {
-        // console.log(startDate)
-        const nextInteriorCleaning = calculateNextInteriorCleaning(startDate);
-        const interiorCleaningDates = calculateInteriorCleaningDates(startDate);
-        const nextPressureWash = calculateNextPressureWash(startDate);
-        const validTill = calculateSubscriptionValidTill(startDate);
-        setSubscriptionDetails(`
-            <h2>Subscription Details</h2>
-            <p><strong>Start Date:</strong> ${startDate}</p>
-            <p><strong>Exterior Cleaning:</strong> Daily</p>
-            <p><strong>Interior Cleaning Dates:</strong> ${interiorCleaningDates.join(', ')}</p>
-            <p><strong>Pressure Wash:</strong> ${nextPressureWash}</p>
-            <p><strong>Valid Till:</strong> ${validTill}</p>
-            `);
-            // <p><strong>Interior Cleaning:</strong> Every 7 days, starting from ${nextInteriorCleaning}</p>
-    }
-
     // Handle form submission
     async function handleSubmit() {
         try {
@@ -98,8 +48,7 @@ function SubscriptionTracker() {
                 // console.log(item)
                 if (item.Phone == Phone) {
                     // console.log(item.StartDate ? item.StartDate.split("T")[0] : "N/A")
-                    setStartDate(item.StartDate?item.StartDate.split("T")[0] : "N/A");
-                    displaySubscriptionDetails(item.StartDate?item.StartDate.split("T")[0] : "N/A");
+                    setStartDate(item.StartDate ? item.StartDate.split("T")[0] : "N/A");
                 }
                 else {
                     // console.log("Phone number not found")
@@ -133,7 +82,18 @@ function SubscriptionTracker() {
                 />
                 <button onClick={handleSubmit}>Submit</button>
             </div>
-            <div id="subscription-details" dangerouslySetInnerHTML={{ __html: subscriptionDetails }} />
+            <div id="subscription-details">
+                {StartDate && (
+                    <>
+                        <h2>Subscription Details</h2>
+                        <p>{`Start Date: ${StartDate}`}</p>
+                        <p>Exterior Cleaning: Daily</p>
+                        <p>{`Interior Cleaning Dates: ${data.filter((item)=>item.StartDate.split("T")[0]===StartDate).map(item =>item.interriorfirst.split("T")[0]+" , "+item.interriorsecond.split("T")[0] +" , "+ item.interriorthird.split("T")[0] +" , "+ item.interriorfourth.split("T")[0])}`}</p>
+                        <p>{`Pressure Wash: ${calculateNextPressureWash(StartDate)}`}</p>
+                        <p>{`Valid Till: ${calculateSubscriptionValidTill(StartDate)}`}</p>
+                    </>
+                )}
+            </div>
         </div>
     );
 }
