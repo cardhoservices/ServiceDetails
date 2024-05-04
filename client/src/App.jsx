@@ -10,7 +10,7 @@ function SubscriptionTracker() {
 
     // console.log(import.meta.env.VITE_SERVER_URL)
     useEffect(() => {
-        axios.get(`${import.meta.env.VITE_SERVER_URL}/getdata`)
+        axios.get(`${import.meta.env.VITE_SERVER_URL}/get`)
             .then((response) => {
                 // console.log(response.data)
                 setData(response.data);
