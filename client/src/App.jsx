@@ -5,7 +5,8 @@ import axios from 'axios';
 function SubscriptionTracker() {
     const [data, setData] = useState([]);
     const [Phone, setPhone] = useState('');
-    const [StartDate, setStartDate] = useState('');
+    const [finaldata,setfinaldata] = useState([])
+    const [StartDate,setStartDate] = useState("")
     const [subscriptionDetails, setSubscriptionDetails] = useState('');
 
     // console.log(import.meta.env.VITE_SERVER_URL)
@@ -45,22 +46,23 @@ function SubscriptionTracker() {
     async function handleSubmit() {
         try {
             data.map((item) => {
-                // console.log(item)
                 if (item.Phone == Phone) {
                     // console.log(item.StartDate ? item.StartDate.split("T")[0] : "N/A")
-                    setStartDate(item.StartDate ? item.StartDate.split("T")[0] : "N/A");
+                    setfinaldata(item)
+                    setStartDate(item.StartDate.split("T")[0])
                 }
                 else {
-                    // console.log("Phone number not found")
+                    // alert("Phone number not found")
                 }
             });
         } catch (error) {
             console.error(error);
         }
     }
+    // console.log(data)
     return (
         <div className="container">
-            <h1>CarClub Subscription Tracker</h1>
+            <h1>CarDho Subscription Tracker</h1>
             <div className='form'>
                 <label htmlFor="mobile-number">Enter Mobile Number:</label>
                 <input
@@ -88,7 +90,7 @@ function SubscriptionTracker() {
                         <h2>Subscription Details</h2>
                         <p>{`Start Date: ${StartDate}`}</p>
                         <p>Exterior Cleaning: Daily</p>
-                        <p>{`Interior Cleaning Dates: ${data.filter((item)=>item.StartDate.split("T")[0]===StartDate).map(item =>item.interriorfirst.split("T")[0]+" , "+item.interriorsecond.split("T")[0] +" , "+ item.interriorthird.split("T")[0] +" , "+ item.interriorfourth.split("T")[0])}`}</p>
+                        <p>{`Interior Cleaning Dates: ${finaldata.interriorfirst.split("T")[0]+" , "+finaldata.interriorsecond.split("T")[0] +" , "+ finaldata.interriorthird.split("T")[0] +" , "+ finaldata.interriorfourth.split("T")[0]}`}</p>
                         <p>{`Pressure Wash: ${calculateNextPressureWash(StartDate)}`}</p>
                         <p>{`Valid Till: ${calculateSubscriptionValidTill(StartDate)}`}</p>
                     </>

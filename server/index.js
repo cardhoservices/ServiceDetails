@@ -7,7 +7,7 @@ require('dotenv').config()
 app.use(express.json());
 app.use(cors());
 
-
+console.log(process.env.VITE_MONGO_KEY)
 mongoose.connect(process.env.VITE_MONGO_KEY,{
     dbName:'UserDetails'
 });
