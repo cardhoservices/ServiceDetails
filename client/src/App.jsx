@@ -73,6 +73,15 @@ function SubscriptionTracker() {
                     onChange={(e) => setPhone(e.target.value)}
                     required
                 />
+                <label htmlFor="name">Name:</label>
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    disabled
+                    defaultValue={finaldata.Name || ''}
+                    required
+                />
                 <label htmlFor="start-date">Subscription Start Date:</label>
                 <input
                     type="text"

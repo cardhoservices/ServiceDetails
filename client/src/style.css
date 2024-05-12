@@ -85,8 +85,14 @@ strong {
   color: #333;
 }
 
-input[type="text"][disabled]{
-  background-color: #aaaaaa;
+input[type="text"][name="name"][disabled]{
+  background-color: #d2d2d2;
+  font-size: 1rem;
+  font-weight: bold;
+}
+input[type="text"][name="start-date"][disabled]{
+  background-color: #d2d2d2;
+  font-weight: bold;
 }
 
 @media screen and (max-width: 600px) {
