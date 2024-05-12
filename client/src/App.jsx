@@ -59,7 +59,6 @@ function SubscriptionTracker() {
             console.error(error);
         }
     }
-    // console.log(data)
     return (
         <div className="container">
             <h1>CarDho Subscription Tracker</h1>
@@ -99,7 +98,7 @@ function SubscriptionTracker() {
                         <h2>Subscription Details</h2>
                         <p>{`Start Date: ${StartDate}`}</p>
                         <p>Exterior Cleaning: Daily</p>
-                        <p>{`Interior Cleaning Dates: ${finaldata.interriorfirst.split("T")[0]+" , "+finaldata.interriorsecond.split("T")[0] +" , "+ finaldata.interriorthird.split("T")[0] +" , "+ finaldata.interriorfourth.split("T")[0]}`}</p>
+                        <p>Interior Cleaning Dates: {finaldata.interriorfirst.split("T")[0]}, {finaldata.interriorsecond?finalfinaldata.interriorsecond.split("T")[0]:"NA"}, {finaldata.interriorthird?finalfinaldata.interriorthird.split("T")[0]:"NA"}, {finaldata.interriorfourth?finalfinaldata.interriorfourth.split("T")[0]:"NA"}</p>
                         <p>{`Pressure Wash: ${calculateNextPressureWash(StartDate)}`}</p>
                         <p>{`Valid Till: ${calculateSubscriptionValidTill(StartDate)}`}</p>
                     </>
