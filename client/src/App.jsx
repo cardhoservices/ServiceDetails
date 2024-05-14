@@ -3,36 +3,14 @@ import './style.css';
 import axios from 'axios';
 
 function SubscriptionTracker() {
-    const [data, setData] = useState([]);
     const [Phone, setPhone] = useState('');
     const [finaldata, setfinaldata] = useState([])
     const [StartDate, setStartDate] = useState("")
     const [subscriptionDetails, setSubscriptionDetails] = useState('');
 
     // console.log(import.meta.env.VITE_SERVER_URL)
-    useEffect(() => {
-        axios.get(`${import.meta.env.VITE_SERVER_URL}/get`)
-            .then((response) => {
-                // console.log(response.data)
-                setData(response.data);
-            })
-            .catch((error) => {
-                console.error(error);
-            });
-    }, [])
-
-    // Function to calculate the next pressure wash date
-    function calculateNextPressureWash(StartDate) {
-        if (!StartDate) return '';
-        const start = new Date(StartDate);
-        let nextPressureWash = new Date(start);
-        nextPressureWash.setDate(start.getDate() + 29);
-        while (nextPressureWash.getDay() === 0) { // Check if Sunday
-            nextPressureWash.setDate(nextPressureWash.getDate() + 1);
-        }
-        return nextPressureWash.toDateString();
-    }
-
+    
+    
     // Function to calculate the subscription valid till date
     function calculateSubscriptionValidTill(StartDate) {
         if (!StartDate) return '';
@@ -45,16 +23,14 @@ function SubscriptionTracker() {
     // Handle form submission
     async function handleSubmit() {
         try {
-            data.map((item) => {
-                if (item.Phone == Phone) {
-                    // console.log(item.StartDate ? item.StartDate.split("T")[0] : "N/A")
-                    setfinaldata(item)
-                    setStartDate(item.StartDate.split("T")[0])
-                }
-                else {
-                    // alert("Phone number is not registered, please contact us at +91 8000136486")
-                }
-            });
+            axios.get(`${import.meta.env.VITE_SERVER_URL}/get/${Phone}` )
+                .then((res) => {
+                    setfinaldata(res.data)
+                    setStartDate(res.data.StartDate ? res.data.StartDate.split("T")[0] : "")
+                })
+                .catch((error) => {
+                    // console.error(error);
+                });
         } catch (error) {
             console.error(error);
         }
@@ -101,7 +77,7 @@ function SubscriptionTracker() {
                 {StartDate && (
                     <>
                         <h2>Subscription Details</h2>
-                        <p>{`Start Date: ${StartDate}`}</p>
+                        <p style={{ fontWeight: 'bold' }}>Car: {finaldata.Car}</p>
                         <p>Exterior Cleaning: Daily</p>
                         <p>Interior Cleaning Dates:
                             <ol>
@@ -111,7 +87,7 @@ function SubscriptionTracker() {
                                 <li>{finaldata.interriorfourth ? finaldata.interriorfourth.split("T")[0] : "N/A"}</li>
                             </ol>
                         </p>
-                        <p>{`Pressure Wash: ${calculateNextPressureWash(StartDate)}`}</p>
+                        <p>{`Pressure Wash: ${finaldata.PressureWash.split("T")[0]}`}</p>
                         <p>{`Valid Till: ${calculateSubscriptionValidTill(StartDate)}`}</p>
                     </>
                 )}

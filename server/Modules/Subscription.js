@@ -7,7 +7,8 @@ const SubscriptionSchema = new mongoose.Schema({
     interriorfirst:Date,
     interriorsecond:Date,
     interriorthird:Date,
-    interriorfourth:Date
+    interriorfourth:Date,
+    pressureWashDate: Date
 });
 
 const Subscription = mongoose.model('details', SubscriptionSchema);
