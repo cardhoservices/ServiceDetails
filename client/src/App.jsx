@@ -61,7 +61,10 @@ function SubscriptionTracker() {
     }
     return (
         <div className="container">
-            <h1>CarDho Tracker</h1>
+            {/* <h1>CarDho Tracker</h1> */}
+            <div className="logo-header">
+                <img className='logo-header-img' src="src\Assets\White Logo 1.png" alt="" />
+            </div>
             <div className='form'>
                 <label htmlFor="mobile-number">Registered Mobile Number</label>
                 <input
