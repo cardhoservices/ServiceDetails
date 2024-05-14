@@ -77,10 +77,9 @@ input[type="number"] {
   font-family: 'Open Sans', sans-serif;
 }
 
-p {
-  /* margin-bottom: 20px; */
-  /* font-weight: bold; */
-}
+/* p {
+  margin-bottom: 20px;
+} */
 
 strong {
   font-weight: bold;
