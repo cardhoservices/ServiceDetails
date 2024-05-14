@@ -5,8 +5,8 @@ import axios from 'axios';
 function SubscriptionTracker() {
     const [data, setData] = useState([]);
     const [Phone, setPhone] = useState('');
-    const [finaldata,setfinaldata] = useState([])
-    const [StartDate,setStartDate] = useState("")
+    const [finaldata, setfinaldata] = useState([])
+    const [StartDate, setStartDate] = useState("")
     const [subscriptionDetails, setSubscriptionDetails] = useState('');
 
     // console.log(import.meta.env.VITE_SERVER_URL)
@@ -52,7 +52,7 @@ function SubscriptionTracker() {
                     setStartDate(item.StartDate.split("T")[0])
                 }
                 else {
-                    // alert("Phone number not found")
+                    // alert("Phone number is not registered, please contact us at +91 8000136486")
                 }
             });
         } catch (error) {
@@ -100,7 +100,14 @@ function SubscriptionTracker() {
                         <h2>Subscription Details</h2>
                         <p>{`Start Date: ${StartDate}`}</p>
                         <p>Exterior Cleaning: Daily</p>
-                        <p>Interior Cleaning Dates: {finaldata.interriorfirst?finaldata.interriorfirst.split("T")[0]:"N/A"}, {finaldata.interriorsecond?finaldata.interriorsecond.split("T")[0]:"N/A"}, {finaldata.interriorthird?finaldata.interriorthird.split("T")[0]:"N/A"}, {finaldata.interriorfourth?finaldata.interriorfourth.split("T")[0]:"N/A"}</p>
+                        <p>Interior Cleaning Dates:
+                            <ol>
+                                <li>{finaldata.interriorfirst ? finaldata.interriorfirst.split("T")[0] : "N/A"}</li>
+                                <li>{finaldata.interriorsecond ? finaldata.interriorsecond.split("T")[0] : "N/A"}</li>
+                                <li>{finaldata.interriorthird ? finaldata.interriorthird.split("T")[0] : "N/A"}</li>
+                                <li>{finaldata.interriorfourth ? finaldata.interriorfourth.split("T")[0] : "N/A"}</li>
+                            </ol>
+                        </p>
                         <p>{`Pressure Wash: ${calculateNextPressureWash(StartDate)}`}</p>
                         <p>{`Valid Till: ${calculateSubscriptionValidTill(StartDate)}`}</p>
                     </>

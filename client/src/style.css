@@ -78,7 +78,8 @@ input[type="number"] {
 }
 
 p {
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
+  /* font-weight: bold; */
 }
 
 strong {
