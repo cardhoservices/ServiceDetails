@@ -8,6 +8,7 @@
 body {
   margin: 0;
   padding: 0;
+  font-family: 'Montserrat', sans-serif;
   background-color: #f0f0f0;
 }
 
@@ -26,16 +27,17 @@ h1 {
   text-align: center;
   color: #edf2f4;
   display: inline;
+  margin-bottom: 20px;
 }
 
-.logo-header, img {
+/* .logo-header, img {
   width: 150px;
   height: 100px;
   background-size: cover;
   margin: auto;
   margin-bottom: 20px;
   display: inline-block;
-}
+} */
 
 .form {
   margin-bottom: 20px;
