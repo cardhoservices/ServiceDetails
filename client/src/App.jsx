@@ -63,29 +63,31 @@ function SubscriptionTracker() {
         <div className="container">
             <h1>CarDho Subscription Tracker</h1>
             <div className='form'>
-                <label htmlFor="mobile-number">Enter Mobile Number:</label>
+                <label htmlFor="mobile-number">Registered Mobile Number</label>
                 <input
                     type="number"
                     id="mobile-number"
-                    placeholder="Phone Number"
+                    placeholder="Enter registered mobile number"
                     value={Phone}
                     onChange={(e) => setPhone(e.target.value)}
                     required
                 />
                 <button onClick={handleSubmit}>Submit</button>
-                <label htmlFor="name">Name:</label>
+                <label htmlFor="name">Name</label>
                 <input
                     type="text"
                     id="name"
+                    placeholder="---"
                     name="name"
                     disabled
                     defaultValue={finaldata.Name || ''}
                     required
                 />
-                <label htmlFor="start-date">Subscription Start Date:</label>
+                <label htmlFor="start-date">Subscription Start Date</label>
                 <input
                     type="text"
                     id="start-date"
+                    placeholder="---"
                     name="start-date"
                     disabled
                     defaultValue={StartDate || ''}
@@ -98,7 +100,7 @@ function SubscriptionTracker() {
                         <h2>Subscription Details</h2>
                         <p>{`Start Date: ${StartDate}`}</p>
                         <p>Exterior Cleaning: Daily</p>
-                        <p>Interior Cleaning Dates: {finaldata.interriorfirst?finaldata.interriorfirst.split("T")[0]:"NA"}, {finaldata.interriorsecond?finaldata.interriorsecond.split("T")[0]:"NA"}, {finaldata.interriorthird?finaldata.interriorthird.split("T")[0]:"NA"}, {finaldata.interriorfourth?finaldata.interriorfourth.split("T")[0]:"NA"}</p>
+                        <p>Interior Cleaning Dates: {finaldata.interriorfirst?finaldata.interriorfirst.split("T")[0]:"N/A"}, {finaldata.interriorsecond?finaldata.interriorsecond.split("T")[0]:"N/A"}, {finaldata.interriorthird?finaldata.interriorthird.split("T")[0]:"N/A"}, {finaldata.interriorfourth?finaldata.interriorfourth.split("T")[0]:"N/A"}</p>
                         <p>{`Pressure Wash: ${calculateNextPressureWash(StartDate)}`}</p>
                         <p>{`Valid Till: ${calculateSubscriptionValidTill(StartDate)}`}</p>
                     </>
