@@ -72,6 +72,7 @@ function SubscriptionTracker() {
                     onChange={(e) => setPhone(e.target.value)}
                     required
                 />
+                <button onClick={handleSubmit}>Submit</button>
                 <label htmlFor="name">Name:</label>
                 <input
                     type="text"
@@ -90,7 +91,6 @@ function SubscriptionTracker() {
                     defaultValue={StartDate || ''}
                     required
                 />
-                <button onClick={handleSubmit}>Submit</button>
             </div>
             <div id="subscription-details">
                 {StartDate && (
