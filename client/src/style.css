@@ -42,20 +42,9 @@ input[type="text"] {
   font-family: 'Open Sans', sans-serif;
 }
 
-input[type="number"] {
-  width: calc(100% - 20px);
-  /* Subtract padding from width */
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-sizing: border-box;
-  font-family: 'Open Sans', sans-serif;
-}
-
 button {
   padding: 10px 20px;
-  margin: 10px 0;
+  margin: 10px 0 20px 0;
   background-color: #4CAF50;
   color: white;
   border: none;
@@ -66,6 +55,17 @@ button {
 
 button:hover {
   background-color: #45a049;
+}
+
+input[type="number"] {
+  width: calc(100% - 20px);
+  /* Subtract padding from width */
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
 }
 
 #subscription-details {
@@ -86,13 +86,14 @@ strong {
   color: #333;
 }
 
-input[type="text"][name="name"][disabled]{
+input[type="text"][name="name"][disabled] {
   text-align: center;
   background-color: #d2d2d2;
   font-size: 1rem;
   font-weight: bold;
 }
-input[type="text"][name="start-date"][disabled]{
+
+input[type="text"][name="start-date"][disabled] {
   text-align: center;
   background-color: #d2d2d2;
   font-size: 1rem;
@@ -119,11 +120,11 @@ input[type="text"][name="start-date"][disabled]{
     width: 100%;
   }
 
-  input[type="text"][name="name"][disabled]{
+  input[type="text"][name="name"][disabled] {
     width: 100%;
   }
 
-  input[type="text"][name="start-date"][disabled]{
+  input[type="text"][name="start-date"][disabled] {
     width: 100%;
   }
 
