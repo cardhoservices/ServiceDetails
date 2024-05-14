@@ -61,7 +61,7 @@ function SubscriptionTracker() {
     }
     return (
         <div className="container">
-            <h1>CarDho Subscription Tracker</h1>
+            <h1>CarDho Tracker</h1>
             <div className='form'>
                 <label htmlFor="mobile-number">Registered Mobile Number</label>
                 <input
