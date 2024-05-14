@@ -86,12 +86,15 @@ strong {
 }
 
 input[type="text"][name="name"][disabled]{
+  text-align: center;
   background-color: #d2d2d2;
   font-size: 1rem;
   font-weight: bold;
 }
 input[type="text"][name="start-date"][disabled]{
+  text-align: center;
   background-color: #d2d2d2;
+  font-size: 1rem;
   font-weight: bold;
 }
 
@@ -115,7 +118,16 @@ input[type="text"][name="start-date"][disabled]{
     width: 100%;
   }
 
+  input[type="text"][name="name"][disabled]{
+    width: 100%;
+  }
+
+  input[type="text"][name="start-date"][disabled]{
+    width: 100%;
+  }
+
   button {
+    margin-top: 0.5rem;
     width: 100%;
   }
 }
