@@ -98,6 +98,7 @@ function SubscriptionTracker() {
                 {StartDate && (
                     <>
                         <h2>Subscription Details</h2>
+                        
                         <p>{`Start Date: ${StartDate}`}</p>
                         <p>Exterior Cleaning: Daily</p>
                         <p>Interior Cleaning Dates: {finaldata.interriorfirst?finaldata.interriorfirst.split("T")[0]:"N/A"}, {finaldata.interriorsecond?finaldata.interriorsecond.split("T")[0]:"N/A"}, {finaldata.interriorthird?finaldata.interriorthird.split("T")[0]:"N/A"}, {finaldata.interriorfourth?finaldata.interriorfourth.split("T")[0]:"N/A"}</p>
