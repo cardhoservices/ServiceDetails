@@ -1,42 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 body {
   margin: 0;
   padding: 0;
   background-color: #f0f0f0;
+  height: 100swh;
 }
 
 .container {
   max-width: 800px;
   margin: 20px auto;
-  padding: 20px;
+  padding: 0 0px 20px 0px;
   background-color: #002c40;
-  border-radius: 10px;
+  border-radius: 1rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
 }
 
-h1 {
-  text-align: center;
-  color: #edf2f4;
-  display: inline;
+.header-box-headings {
   margin-bottom: 20px;
+  background-color: #4c7d9348;
+  border-radius: 1rem 1rem 0 0;
+  padding: 10px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-/* .logo-header, img {
-  width: 150px;
-  height: 100px;
-  background-size: cover;
+h1 {
+  color: #edf2f4;
+  letter-spacing: 1px;
+  font-weight: 800;
+  font-style: italic;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.h1-span {
   margin: auto;
-  margin-bottom: 20px;
-  display: inline-block;
-} */
+  color: #edf2f4;
+  text-align: center;
+  font-weight: 700;
+  font-style: italic;
+  letter-spacing: 1px;
+  font-family: 'Montserrat', sans-serif;
+}
 
 .form {
   margin-bottom: 20px;
@@ -50,7 +66,7 @@ label {
 }
 
 input[type="text"] {
-  width: calc(100% - 20px);
+  width: calc(100% - 50px);
   /* Subtract padding from width */
   padding: 10px;
   margin-bottom: 10px;
@@ -75,7 +91,7 @@ button:hover {
 }
 
 input[type="number"] {
-  width: calc(100% - 20px);
+  width: calc(100% - 50px);
   /* Subtract padding from width */
   padding: 10px;
   margin-bottom: 10px;
@@ -85,10 +101,11 @@ input[type="number"] {
 }
 
 #subscription-details {
-  margin-top: 20px;
+  width: calc(100% - 50px);
   padding: 20px;
+  margin: auto;
   background-color: #f9f9f9;
-  border-radius: 5px;
+  border-radius: 0.5rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   overflow: auto;
 }
@@ -126,7 +143,7 @@ input[type="text"][name="start-date"][disabled] {
 
 @media screen and (max-width: 600px) {
   .container {
-    padding: 20px;
+    padding: 0 0 20px 0;
     margin: 50px 20px;
   }
 
@@ -136,24 +153,28 @@ input[type="text"][name="start-date"][disabled] {
 
   input[type="date"],
   select {
-    width: 100%;
+    width: calc(100% - 50px);
   }
 
   input[type="number"],
   select {
-    width: 100%;
+    width: calc(100% - 50px);
   }
 
   input[type="text"][name="name"][disabled] {
-    width: 100%;
+    width: calc(100% - 50px);
   }
 
   input[type="text"][name="start-date"][disabled] {
-    width: 100%;
+    width: calc(100% - 50px);
+  }
+
+  #subscription-details {
+    width: calc(100% - 50px);
   }
 
   button {
     margin-top: 0.5rem;
-    width: 100%;
+    width: calc(100% - 50px);
   }
 }
