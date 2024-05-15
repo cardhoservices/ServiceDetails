@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -22,21 +24,29 @@ body {
   flex-direction: column;
 }
 
-h1 {
+/* h1 {
   text-align: center;
   color: #edf2f4;
-  display: inline;
+  letter-spacing: 3px;
+} */
+
+.h1-span{
+  margin: auto;
+  color: #edf2f4;
+  text-align: center;
+  font-weight: 700;
+  font-style: italic;
+  letter-spacing: 1px;
   margin-bottom: 20px;
 }
 
-/* .logo-header, img {
+.logo-header, img {
   width: 150px;
   height: 100px;
   background-size: cover;
   margin: auto;
-  margin-bottom: 20px;
   display: inline-block;
-} */
+}
 
 .form {
   margin-bottom: 20px;
