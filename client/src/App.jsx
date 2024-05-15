@@ -78,7 +78,7 @@ function SubscriptionTracker() {
                 {StartDate && (
                     <>
                         <h2>Subscription Details</h2>
-                        <p>Registered Car: {finaldata.Car}</p>
+                        <p>Car: {finaldata.Car}</p>
                         <p>Exterior Cleaning: Daily</p>
                         <p>Interior Cleaning Dates:
                             <ol>
