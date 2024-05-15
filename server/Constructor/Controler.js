@@ -5,10 +5,15 @@ const getData = async (req, res) => {
     try {
         await Subscription.find({ Phone: req.params.Phone })
         .then(data => {
-            res.json(data[0])
+            if(data){
+                res.json(data[0])
+            }
+            else{
+                res.status(400).send("Entries doesn't match")
+            }
         })
         .catch(err => {
-            res.json("Phone Number not found")
+            console.log(err)
         })
     } catch (error) {
         console.log(error);

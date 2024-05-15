@@ -29,7 +29,7 @@ function SubscriptionTracker() {
                     setStartDate(res.data.StartDate ? res.data.StartDate.split("T")[0] : "")
                 })
                 .catch((error) => {
-                    // console.error(error);
+                    alert(error)
                 });
         } catch (error) {
             console.error(error);
