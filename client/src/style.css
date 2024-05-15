@@ -18,9 +18,9 @@ body {
 .container {
   max-width: 800px;
   margin: 20px auto;
-  padding: 0 20px 20px 20px;
+  padding: 0 0px 20px 0px;
   background-color: #002c40;
-  border-radius: 10px;
+  border-radius: 1rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
@@ -29,7 +29,7 @@ body {
 .header-box-headings {
   margin-bottom: 20px;
   background-color: #4c7d9348;
-  border-radius: 0 0 1rem 1rem;
+  border-radius: 1rem 1rem 0 0;
   padding: 10px 10px;
   display: flex;
   flex-direction: column;
@@ -66,7 +66,7 @@ label {
 }
 
 input[type="text"] {
-  width: calc(100% - 20px);
+  width: calc(100% - 50px);
   /* Subtract padding from width */
   padding: 10px;
   margin-bottom: 10px;
@@ -91,7 +91,7 @@ button:hover {
 }
 
 input[type="number"] {
-  width: calc(100% - 20px);
+  width: calc(100% - 50px);
   /* Subtract padding from width */
   padding: 10px;
   margin-bottom: 10px;
@@ -101,10 +101,11 @@ input[type="number"] {
 }
 
 #subscription-details {
-  /* margin-top: 20px; */
+  width: calc(100% - 50px);
   padding: 20px;
+  margin: auto;
   background-color: #f9f9f9;
-  border-radius: 5px;
+  border-radius: 0.5rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   overflow: auto;
 }
@@ -142,7 +143,7 @@ input[type="text"][name="start-date"][disabled] {
 
 @media screen and (max-width: 600px) {
   .container {
-    padding: 0 20px 20px 20px;
+    padding: 0 0 20px 0;
     margin: 50px 20px;
   }
 
@@ -152,24 +153,28 @@ input[type="text"][name="start-date"][disabled] {
 
   input[type="date"],
   select {
-    width: 100%;
+    width: calc(100% - 50px);
   }
 
   input[type="number"],
   select {
-    width: 100%;
+    width: calc(100% - 50px);
   }
 
   input[type="text"][name="name"][disabled] {
-    width: 100%;
+    width: calc(100% - 50px);
   }
 
   input[type="text"][name="start-date"][disabled] {
-    width: 100%;
+    width: calc(100% - 50px);
+  }
+
+  #subscription-details {
+    width: calc(100% - 50px);
   }
 
   button {
     margin-top: 0.5rem;
-    width: 100%;
+    width: calc(100% - 50px);
   }
 }
