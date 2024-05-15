@@ -22,18 +22,20 @@ function SubscriptionTracker() {
 
     // Handle form submission
     async function handleSubmit() {
-        try {
+        if (Phone.length !== 10) {
+            alert("Please enter valid phone number")
+        }
+        else {
             axios.get(`${import.meta.env.VITE_SERVER_URL}/get/${Phone}`)
                 .then((res) => {
                     setfinaldata(res.data)
                     setStartDate(res.data.StartDate ? res.data.StartDate.split("T")[0] : "")
                 })
                 .catch((error) => {
-                    alert(error)
+                    alert(error.response.data)
                 });
-        } catch (error) {
-            console.error(error);
         }
+
     }
     return (
         <div className="container">
@@ -73,7 +75,7 @@ function SubscriptionTracker() {
                     required
                 />
             </div>
-            <div id="subscription-details">     
+            <div id="subscription-details">
                 {StartDate && (
                     <>
                         <h2>Subscription Details</h2>

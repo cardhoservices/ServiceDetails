@@ -1,21 +1,16 @@
 const Subscription = require('../Modules/Subscription')
 
 const getData = async (req, res) => {
-
     try {
-        await Subscription.find({ Phone: req.params.Phone })
-        .then(data => {
-            if(data){
-                res.json(data[0])
-            }
-            else{
-                res.status(400).send("Entries doesn't match")
-            }
-        })
-        .catch(err => {
-            console.log(err)
-        })
-    } catch (error) {
+        const data=await Subscription.findOne({ Phone: req.params.Phone })
+        if (data) {
+            res.json(data[0])
+        }
+        else {
+            res.status(400).send('Your Phone Numbe is not register. /n To Register Please Contact on xxxxxxxxxx')
+        }
+    }
+    catch{
         console.log(error);
     }
 }
