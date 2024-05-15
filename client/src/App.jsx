@@ -9,8 +9,8 @@ function SubscriptionTracker() {
     const [subscriptionDetails, setSubscriptionDetails] = useState('');
 
     // console.log(import.meta.env.VITE_SERVER_URL)
-    
-    
+
+
     // Function to calculate the subscription valid till date
     function calculateSubscriptionValidTill(StartDate) {
         if (!StartDate) return '';
@@ -23,7 +23,7 @@ function SubscriptionTracker() {
     // Handle form submission
     async function handleSubmit() {
         try {
-            axios.get(`${import.meta.env.VITE_SERVER_URL}/get/${Phone}` )
+            axios.get(`${import.meta.env.VITE_SERVER_URL}/get/${Phone}`)
                 .then((res) => {
                     setfinaldata(res.data)
                     setStartDate(res.data.StartDate ? res.data.StartDate.split("T")[0] : "")
@@ -37,11 +37,10 @@ function SubscriptionTracker() {
     }
     return (
         <div className="container">
-            <h1>CARDHO</h1>
-            {/* <div className="logo-header">
-                <img className='logo-header-img' src="./src/Assets/White Logo 1.png" alt="" />
-            </div> */}
-            <span className="h1-span">SUBSCRIPTION TRACKER</span>
+            <div className="header-box-headings">
+                <h1>CARDHO</h1>
+                <span className="h1-span">SUBSCRIPTION TRACKER</span>
+            </div>
             <div className='form'>
                 <label htmlFor="mobile-number">Registered Mobile Number</label>
                 <input

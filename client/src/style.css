@@ -18,7 +18,7 @@ body {
 .container {
   max-width: 800px;
   margin: 20px auto;
-  padding: 20px;
+  padding: 0 20px 20px 20px;
   background-color: #002c40;
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -26,8 +26,17 @@ body {
   flex-direction: column;
 }
 
+.header-box-headings {
+  margin-bottom: 20px;
+  background-color: #4c7d9348;
+  border-radius: 0 0 1rem 1rem;
+  padding: 10px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 h1 {
-  text-align: center;
   color: #edf2f4;
   letter-spacing: 1px;
   font-weight: 800;
@@ -35,24 +44,15 @@ h1 {
   font-family: 'Montserrat', sans-serif;
 }
 
-.h1-span{
+.h1-span {
   margin: auto;
   color: #edf2f4;
   text-align: center;
   font-weight: 700;
   font-style: italic;
   letter-spacing: 1px;
-  margin-bottom: 20px;
   font-family: 'Montserrat', sans-serif;
 }
-
-/* .logo-header, img {
-  width: 150px;
-  height: 100px;
-  background-size: cover;
-  margin: auto;
-  display: inline-block;
-} */
 
 .form {
   margin-bottom: 20px;
@@ -101,7 +101,7 @@ input[type="number"] {
 }
 
 #subscription-details {
-  margin-top: 20px;
+  /* margin-top: 20px; */
   padding: 20px;
   background-color: #f9f9f9;
   border-radius: 5px;
@@ -142,7 +142,7 @@ input[type="text"][name="start-date"][disabled] {
 
 @media screen and (max-width: 600px) {
   .container {
-    padding: 20px;
+    padding: 0 20px 20px 20px;
     margin: 50px 20px;
   }
 
