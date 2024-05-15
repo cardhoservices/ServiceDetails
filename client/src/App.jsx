@@ -73,7 +73,7 @@ function SubscriptionTracker() {
                     required
                 />
             </div>
-            <div id="subscription-details">
+            <div id="subscription-details">     
                 {StartDate && (
                     <>
                         <h2>Subscription Details</h2>
