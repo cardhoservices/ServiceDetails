@@ -37,10 +37,10 @@ function SubscriptionTracker() {
     }
     return (
         <div className="container">
-            {/* <h1>CARDHO</h1> */}
-            <div className="logo-header">
+            <h1>CARDHO</h1>
+            {/* <div className="logo-header">
                 <img className='logo-header-img' src="./src/Assets/White Logo 1.png" alt="" />
-            </div>
+            </div> */}
             <span className="h1-span">SUBSCRIPTION TRACKER</span>
             <div className='form'>
                 <label htmlFor="mobile-number">Registered Mobile Number</label>
@@ -78,7 +78,7 @@ function SubscriptionTracker() {
                 {StartDate && (
                     <>
                         <h2>Subscription Details</h2>
-                        <p style={{ fontWeight: 'bold' }}>Car: {finaldata.Car}</p>
+                        <p>Registered Car: {finaldata.Car}</p>
                         <p>Exterior Cleaning: Daily</p>
                         <p>Interior Cleaning Dates:
                             <ol>

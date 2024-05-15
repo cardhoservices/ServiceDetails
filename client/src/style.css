@@ -4,7 +4,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Montserrat', sans-serif;
+  /* font-family: 'Montserrat', sans-serif; */
 }
 
 body {
@@ -24,11 +24,14 @@ body {
   flex-direction: column;
 }
 
-/* h1 {
+h1 {
   text-align: center;
   color: #edf2f4;
-  letter-spacing: 3px;
-} */
+  letter-spacing: 1px;
+  font-weight: 800;
+  font-style: italic;
+  font-family: 'Montserrat', sans-serif;
+}
 
 .h1-span{
   margin: auto;
@@ -38,15 +41,16 @@ body {
   font-style: italic;
   letter-spacing: 1px;
   margin-bottom: 20px;
+  font-family: 'Montserrat', sans-serif;
 }
 
-.logo-header, img {
+/* .logo-header, img {
   width: 150px;
   height: 100px;
   background-size: cover;
   margin: auto;
   display: inline-block;
-}
+} */
 
 .form {
   margin-bottom: 20px;
