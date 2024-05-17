@@ -1,12 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, {  useState } from 'react';
 import './style.css';
 import axios from 'axios';
 
 function SubscriptionTracker() {
     const [Phone, setPhone] = useState('');
     const [finaldata, setfinaldata] = useState([])
-    const [StartDate, setStartDate] = useState("")
-    const [subscriptionDetails, setSubscriptionDetails] = useState('');
 
     // console.log(import.meta.env.VITE_SERVER_URL)
 
@@ -29,7 +27,6 @@ function SubscriptionTracker() {
             axios.get(`${import.meta.env.VITE_SERVER_URL}/get/${Phone}`)
                 .then((res) => {
                     setfinaldata(res.data)
-                    setStartDate(res.data.StartDate ? res.data.StartDate.split("T")[0] : "")
                 })
                 .catch((error) => {
                     alert(error.response.data)
@@ -71,12 +68,12 @@ function SubscriptionTracker() {
                     placeholder="---"
                     name="start-date"
                     disabled
-                    defaultValue={StartDate || ''}
+                    defaultValue={finaldata.StartDate || ''}
                     required
                 />
             </div>
             <div id="subscription-details">
-                {StartDate && (
+                {finaldata && (
                     <>
                         <h2>Subscription Details</h2>
                         <p>Car: {finaldata.Car}</p>
@@ -90,7 +87,7 @@ function SubscriptionTracker() {
                             </ol>
                         </p>
                         <p>{`Pressure Wash: ${finaldata.PressureWash.split("T")[0]}`}</p>
-                        <p>{`Valid Till: ${calculateSubscriptionValidTill(StartDate)}`}</p>
+                        <p>{`Valid Till: ${calculateSubscriptionValidTill(finaldata.StartDate.split("T")[0])}`}</p>
                     </>
                 )}
             </div>
