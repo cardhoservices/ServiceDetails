@@ -58,7 +58,7 @@ function SubscriptionTracker() {
                     placeholder="---"
                     name="name"
                     disabled
-                    defaultValue={finaldata.Name || ''}
+                    defaultValue={finaldata.Name?finaldata.Name:''}
                     required
                 />
                 <label htmlFor="start-date">Subscription Start Date</label>
@@ -68,26 +68,25 @@ function SubscriptionTracker() {
                     placeholder="---"
                     name="start-date"
                     disabled
-                    defaultValue={finaldata.StartDate || ''}
+                    defaultValue={finaldata.StartDate?finaldata.StartDate.split("T")[0]:""}
                     required
                 />
             </div>
             <div id="subscription-details">
-                {finaldata && (
+                {finaldata.StartDate && (
                     <>
                         <h2>Subscription Details</h2>
                         <p>Car: {finaldata.Car}</p>
                         <p>Exterior Cleaning: Daily</p>
-                        <p>Interior Cleaning Dates:
+                        <p>Interior Cleaning Dates:</p>
                             <ol>
                                 <li>{finaldata.interriorfirst ? finaldata.interriorfirst.split("T")[0] : "N/A"}</li>
                                 <li>{finaldata.interriorsecond ? finaldata.interriorsecond.split("T")[0] : "N/A"}</li>
                                 <li>{finaldata.interriorthird ? finaldata.interriorthird.split("T")[0] : "N/A"}</li>
                                 <li>{finaldata.interriorfourth ? finaldata.interriorfourth.split("T")[0] : "N/A"}</li>
                             </ol>
-                        </p>
-                        <p>{`Pressure Wash: ${finaldata.PressureWash.split("T")[0]}`}</p>
-                        <p>{`Valid Till: ${calculateSubscriptionValidTill(finaldata.StartDate.split("T")[0])}`}</p>
+                        <p>{`Pressure Wash: ${finaldata.PressureWash ? finaldata.PressureWash.split("T")[0]:"N/A"}`}</p>
+                        <p>{`Valid Till: ${finaldata.StartDate?calculateSubscriptionValidTill(finaldata.StartDate.split("T")[0]):"N/A"}`}</p>
                     </>
                 )}
             </div>
