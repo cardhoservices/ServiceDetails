@@ -32,7 +32,6 @@ function SubscriptionTracker() {
     const handlePhoneChange = (e) => {
         const value = e.target.value;
         setPhone(value);
-        debouncedGetSubscription(value);
     };
 
     // Handle form submission
