@@ -97,7 +97,6 @@ function SubscriptionTracker() {
                                 <li>{finalData.interriorfourth ? finalData.interriorfourth.split("T")[0] : "N/A"}</li>
                             </ol>
                         </div>
-                        <p>{`Pressure Wash: ${finalData.PressureWash ? finalData.PressureWash.split("T")[0] : "N/A"}`}</p>
                         <p>{`Valid Till: ${finalData.StartDate ? calculateSubscriptionValidTill(finalData.StartDate.split("T")[0]) : "N/A"}`}</p>
                     </>
                 )}
